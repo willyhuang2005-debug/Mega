@@ -17,7 +17,7 @@ h1{color:#1565c0}
 <div id="s1">
 <h1>Hai Mega 👋</h1>
 <p>Ada seseorang yang menyiapkan sesuatu untukmu...</p>
-<button onclick="next(2)">Lanjut ❤️</button>
+<button onclick="playMusic(); next(2)">Lanjut ❤️</button>
 </div>
 <div id="s2" class="hidden">
 <h1>💌</h1>
@@ -41,6 +41,13 @@ Dilancarkanlah segala urusanmu, Mega Sartika.<br><br>
 </div>
 </div>
 <script>
+  function playMusic() {
+    const music = document.getElementById("bgMusic");
+    if (music) {
+        music.play().catch(() => {});
+    }
+}
+ 
 function next(n){
 for(let i=1;i<=4;i++)document.getElementById("s"+i).classList.add("hidden");
 document.getElementById("s"+n).classList.remove("hidden");
@@ -60,5 +67,11 @@ setTimeout(()=>c.remove(),4200);
 }
 }
 </script>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
 </body>
 </html>
